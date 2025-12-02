@@ -1,0 +1,125 @@
+monster = 1810
+sorcerer_health = 300
+hero_health = 200
+archer_health = 200
+
+while monster > 0 and hero_health > 0 and archer_health > 0 and sorcerer_health > 0:
+    
+    def sorcerer(sorcerer_health, monster):
+        monster = monster - sorcerer_health
+        print("The monster has had its life points removed by 300 points!")
+        
+        if monster > 0:
+            print("Monster: ", monster)
+        elif monster <= 0:
+            print("Monster: ", 0)
+
+        sorcerer_health = sorcerer_health - 15
+        print("As the monster moves, the sorcerer takes a hit of 15 points!")
+        if sorcerer_health > 0:
+            print("Sorcerer health: ", sorcerer_health)
+        elif sorcerer_health >= 0:
+            print("Sorcerer: 0")
+
+        return monster, sorcerer_health
+
+    def hero(hero_health,monster):
+        monster = monster - 50
+        print("The monster has had its life points removed by 50 points")
+        
+        if monster > 0:
+            print("Monster: ", monster)
+        elif monster <= 0:
+            print("Monster: ", 0)
+
+        hero_health = hero_health - 20
+        print("As the monster moves, the hero takes a hit of 20 points!")
+
+        if hero_health > 0:
+            print("Hero health: ", hero_health)
+        elif hero_health >= 0:
+            print("Hero: 0")
+
+        return monster, hero_health
+    
+    def archer(archer_health, monster):
+        monster = monster - 18
+        print("The monster has had its life points removed by 18 points")
+
+        if monster > 0:
+            print("Monster: ", monster)
+        elif monster <= 0:
+            print("Monster: ", 0)
+
+        archer_health = archer_health - 20
+        print("As the monster moves, the archer takes a hit of 15 points!")
+
+        if archer_health > 0:
+            print("Archer health: ", archer_health)
+        elif archer_health >= 0:
+            print("Archer: 0")
+
+        return monster, archer_health
+    
+    while True:
+
+        if monster <= 0:
+            print("You win!")
+            break
+        if sorcerer_health <= 0 and hero_health <= 0 and archer_health <= 0:
+            print("All your characters are down. You lost.")
+            break
+
+        print("                                                                            ")
+        print("The RPG adventure")
+        print("Press the folloing as you need to defeat the monster with 1000 plus attack points: ")
+        print("Press the following characters to fight, take note of their life points!")
+        print("Press 1 for the sorcerer, press 2 for the hero, press 3 for the archer")
+        print("================================================================")
+        print("Health points:")
+
+        if sorcerer_health > 0:
+            print("Sorcerer: ", sorcerer_health)
+        elif sorcerer_health <= 0:
+            print("Sorcerer: 0")
+    
+        if hero_health > 0:
+            print("Hero: ", hero_health)
+        elif hero_health <= 0:
+            print("Hero: 0")
+    
+        if archer_health > 0:
+            print("Archer: ", archer_health)
+        elif archer_health <= 0:
+            print("Archer: 0")
+        if monster > 0:
+            print("Monster: ", monster)
+        elif monster <= 0:
+            print("Monster = 0")
+
+        character = input("Enter character to fight: ").strip()
+
+        if character == '1':
+            monster, sorcerer_health = sorcerer(sorcerer_health, monster)
+        elif character == '2':
+            monster, hero_health = hero(hero_health, monster)
+        elif character == '3':
+            monster, archer_health = archer(archer_health, monster)
+        else:
+            print("Press numbers 1 - 3 available characters wil be available soon!")
+            print("      ")
+
+    while True:
+        choice = input("Play again? Y/N: ").strip().upper()
+        if choice == 'Y':
+            monster = 1000
+            sorcerer_health = 300
+            hero_health = 200
+            archer_health = 200
+            break
+        elif choice == 'N':
+            print("Arigato for playing!!")
+            import sys
+            sys.exit()
+        else:
+            print("Please type the two said choices")
