@@ -1,0 +1,13 @@
+import webbrowser
+
+search = (input("Enter search engine: "))
+
+if search == 'google':
+    search_google = input("Search: ")
+    webbrowser.open("https://www.google.com/search?q=" + search_google)
+elif search == 'youtube':
+    search_youtube = input("Search: ")
+    webbrowser.open("https://www.youtube.com/results?search_query=" + search_youtube)
+elif search == 'spotify':
+    search_spotify = input("Search: ")
+    webbrowser.open("https://open.spotify.com/search/" + search_spotify)
